@@ -1,0 +1,11 @@
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\ZKP.exe
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\ZKP.dll
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\ZKP.deps.json
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\ZKP.runtimeconfig.json
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\ZKP.pdb
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\uoh19\source\repos\ZKP\ZKP\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
