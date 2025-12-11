@@ -1,25 +1,28 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
+# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ZKP/ZKP.csproj", "ZKP/"]
-RUN dotnet restore "ZKP/ZKP.csproj"
+
+# ‰”Œ „·› «·„‘—Ê⁄ Ê«” ⁄«œ… «·Õ“„
+COPY ["ZKP.csproj", "./"]
+RUN dotnet restore "ZKP.csproj"
+
+# ‰”Œ »«ﬁÌ «·„·›«  Ê»‰«¡ «·„‘—Ê⁄
 COPY . .
-WORKDIR "/src/ZKP"
 RUN dotnet build "ZKP.csproj" -c Release -o /app/build
 
+# Stage 2: Publish
 FROM build AS publish
 RUN dotnet publish "ZKP.csproj" -c Release -o /app/publish
 
-FROM base AS final
+# Stage 3: Final image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 WORKDIR /app
+
+# ‰”Œ „·›«  «·„‘—Ê⁄ «·„‰‘Ê—
 COPY --from=publish /app/publish .
+
+#  ⁄ÌÌ‰ «·„‰›– «·–Ì ”Ì⁄„· ⁄·ÌÂ «· ÿ»Ìﬁ
+EXPOSE 80
+
+#  ‘€Ì· «·„‘—Ê⁄
 ENTRYPOINT ["dotnet", "ZKP.dll"]
