@@ -1,28 +1,38 @@
-# Stage 1: Build
+# ==============================
+# ãÑÍáÉ ÇáÈäÇÁ
+# ==============================
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-# äÓÎ ãáİ ÇáãÔÑæÚ æÇÓÊÚÇÏÉ ÇáÍÒã
-COPY ["ZKP.csproj", "./"]
-RUN dotnet restore "ZKP.csproj"
+# äÓÎ ãáİ ÇáÍá æÇáãÔÑæÚ ãä ÇáãÌáÏ ÇáİÑÚí ZKP
+COPY ["ZKP.sln", "."]
+COPY ["ZKP/ZKP.csproj", "ZKP/"]
 
-# äÓÎ ÈÇŞí ÇáãáİÇÊ æÈäÇÁ ÇáãÔÑæÚ
+# ÇÓÊÚÇÏÉ ÇáÍÒã
+RUN dotnet restore "ZKP/ZKP.csproj"
+
+# äÓÎ ÈÇŞí ãáİÇÊ ÇáãÔÑæÚ
 COPY . .
+
+# ÖÈØ ãÓÇÑ ÇáÚãá ááãÌáÏ ÇáİÑÚí
+WORKDIR "/src/ZKP"
+
+# ÈäÇÁ ÇáãÔÑæÚ
 RUN dotnet build "ZKP.csproj" -c Release -o /app/build
 
-# Stage 2: Publish
+# ==============================
+# ãÑÍáÉ ÇáäÔÑ
+# ==============================
 FROM build AS publish
 RUN dotnet publish "ZKP.csproj" -c Release -o /app/publish
 
-# Stage 3: Final image
+# ==============================
+# ãÑÍáÉ ÇáÊÔÛíá
+# ==============================
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 WORKDIR /app
-
-# äÓÎ ãáİÇÊ ÇáãÔÑæÚ ÇáãäÔæÑ
 COPY --from=publish /app/publish .
-
-# ÊÚííä ÇáãäİĞ ÇáĞí ÓíÚãá Úáíå ÇáÊØÈíŞ
 EXPOSE 80
 
-# ÊÔÛíá ÇáãÔÑæÚ
+# ÊÔÛíá ÇáÊØÈíŞ
 ENTRYPOINT ["dotnet", "ZKP.dll"]
