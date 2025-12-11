@@ -7,4 +7,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <_PublishTargetUrl>C:\Users\uoh19\Desktop\ابشر\مجلد جديد</_PublishTargetUrl>
     <History>True|2025-12-11T12:18:10.3995276Z;True|2025-12-11T13:01:08.6474044+03:00;</History>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include=".dockerignore">
+      <publishTime>12/11/2025 15:08:10</publishTime>
+    </File>
+    <File Include="Dockerfile">
+      <publishTime>12/11/2025 15:08:10</publishTime>
+    </File>
+  </ItemGroup>
 </Project>
