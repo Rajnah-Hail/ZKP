@@ -24,6 +24,7 @@ public class HospitalService : IHospitalService
         {
             proof = _zkpService.GenerateProof(user.AgeGroup);
             proof.Verified = _zkpService.VerifyProof(user.AgeGroup, proof);
+            
         }
         else
         {

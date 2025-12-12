@@ -10,21 +10,31 @@ namespace ZKP.TestData
         {
             new DemoUser
             {
-                PhoneNumber = "0501111111",
+                PhoneNumber = "0558580907",
                 AgeGroup = "شاب",
-                IsAdult = true
+                IsAdult = true,
+                 firstName="عبدالعزيز",
+                 LastName="الحمد",
+
             },
             new DemoUser
             {
-                PhoneNumber = "0502222222",
+                PhoneNumber = "0505114071",
                 AgeGroup = "طفل",
-                IsAdult = false
+                IsAdult = false,
+                 firstName="فهد",
+                 LastName="الحمد",
+
             },
             new DemoUser
             {
                 PhoneNumber = "0503333333",
                 AgeGroup = "كبار سن",
-                IsAdult = true
+                IsAdult = true,
+                firstName="عبدالله",
+                 LastName="الحمد",
+
+
             }
         };
     }
